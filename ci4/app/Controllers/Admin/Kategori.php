@@ -12,7 +12,9 @@ class Kategori extends BaseController
 
 	public function select()
 	{
-		echo"menampilkan semua data";
+		echo view("template/header");
+		echo view("kategori/select");
+		echo view("template/footer");
 	}
 
 	public function selectWhere($id = null)
@@ -22,22 +24,26 @@ class Kategori extends BaseController
 
 	public function formInsert()
 	{
-		echo"menampilkan form insert";
+		echo view("template/header");
+		echo view("kategori/forminsert");
+		echo view("template/footer");
 	}
 
-	public function formUpdate()
+	public function formUpdate($id = null)
 	{
-		echo"menampilkan form update";
+		echo view("template/header");
+		echo view("kategori/update");
+		echo view("template/footer");
 	}
 
 	public function update($id = null)
 	{
-		echo"proses update data $id";
+		echo"<h1>proses update data $id</h1>";
 	}
 
 	public function delete($id = null)
 	{
-		echo"proses delete data";
+		echo"<h1>proses delete data</h1>";
 	}
 
 	//--------------------------------------------------------------------

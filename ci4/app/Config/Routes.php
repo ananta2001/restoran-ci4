@@ -30,8 +30,17 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('kategori/(:any)', 'Admin\Kategori::selectWhere/$1');
 
+//$routes->get('kategori/(:any)', 'Admin\Kategori::selectWhere/$1');
+
+$routes->group('admin',function($routes){
+
+	$routes->add('kategori/form','Admin\kategori::formInsert');
+	$routes->add('kategori','Admin\kategori::select');
+	$routes->add('kategori/update/(:any)','Admin\kategori::formUpdate/$1');
+	
+
+});
 
 /**
  * --------------------------------------------------------------------
