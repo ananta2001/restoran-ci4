@@ -12,9 +12,16 @@ class Kategori extends BaseController
 
 	public function select()
 	{
-		echo view("template/header");
-		echo view("kategori/select");
-		echo view("template/footer");
+		$data = [
+			'judul' => 'SELECT DATA DARI CONTROLLER',
+			'kategori' => ['makanan','minuman','jajan','gorengan','buah']
+		];
+
+		//echo "<pre>";
+		//\print_r($data);
+		//echo "</pre>";
+
+		echo view("kategori/select",$data);
 	}
 
 	public function selectWhere($id = null)
@@ -24,9 +31,9 @@ class Kategori extends BaseController
 
 	public function formInsert()
 	{
-		echo view("template/header");
-		echo view("kategori/forminsert");
-		echo view("template/footer");
+		
+		return view("kategori/forminsert");
+
 	}
 
 	public function formUpdate($id = null)
