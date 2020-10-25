@@ -1,22 +1,52 @@
-<?php namespace App\Controllers;
+<?php
+
+namespace App\Controllers;
+
+namespace App\Controllers\Admin;
+
+use App\Controllers\BaseController;
+use App\Models\Menu_M;
+use App\Models\Kategori_M;
 
 class Menu extends BaseController
 {
-	public function index()
-	{
-		return view('welcome_message');
-	}
+    public function index()
+    {
+        $pager = \Config\Services::pager();
+        $model = new Menu_M();
 
-	public function select()
-	{
-		echo"<h1>untuk menampilkan data</h1>";
-	}
+        // echo "<pre>";
+        // print_r($kategori);
+        // echo "</pre>";
 
-	public function update($id = null,$nama = null)
-	{
-		echo"<h1>untuk update data dengan id : $id $nama</h1>";
-	}
+        $data = [
+            'judul' => 'DATA MENU',
+            'menu' => $model->paginate(3, 'page'),
+            'pager' => $model->pager
+        ];
 
-	//--------------------------------------------------------------------
+        //echo "<pre>";
+        //\print_r($data);
+        //echo "</pre>";
+
+        echo view("menu/select", $data);
+    }
+
+    public function read()
+    {
+        echo "read data";
+    }
+
+    public function option()
+    {
+        $model = new Kategori_M();
+        $kategori = $model->findAll();
+        $data = [
+            'kategori' => $kategori
+        ];
+        return view('template/option', $data);
+    }
+
+    //--------------------------------------------------------------------
 
 }
