@@ -17,7 +17,7 @@ if (isset($_GET['page_page'])) {
 <div class="row">
 
     <div class="col-4">
-        <a class="btn btn-primary" href="<?= base_url('/admin/kategori/create') ?>" role="button">Tambah data</a>
+        <a class="btn btn-primary" href="<?= base_url('/admin/menu/create') ?>" role="button">Tambah data</a>
     </div>
 
     <div class="col">
