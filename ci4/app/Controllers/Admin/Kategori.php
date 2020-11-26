@@ -38,7 +38,7 @@ class Kategori extends BaseController
 
 	public function insert()
 	{
-		print_r($_POST);
+		//print_r($_POST);
 
 		$model = new Kategori_M();
 

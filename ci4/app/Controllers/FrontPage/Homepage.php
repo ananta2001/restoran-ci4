@@ -1,4 +1,6 @@
-<?php namespace App\Controllers\FrontPage;
+<?php
+
+namespace App\Controllers\FrontPage;
 
 use App\Controllers\BaseController;
 
@@ -6,7 +8,7 @@ class Homepage extends BaseController
 {
 	public function index()
 	{
-		return view('welcome_message');
+		return view('template/header');
 	}
 
 	//--------------------------------------------------------------------

@@ -96,21 +96,25 @@ class Order extends BaseController
 
     public function update()
     {
-        $idorder = $_POST['idorder'];
-        $total = $_POST['total'];
-        $bayar = $_POST['bayar'];
+        if (isset($_POST['bayar'])) {
 
-        if ($bayar < $total) {
-            session()->setFlashdata('info', 'Pembayaran kurang !');
-            $this->find($idorder);
-        } else {
-            $kembali = $total - $bayar;
-            $sql = "UPDATE tblorder SET bayar=$bayar, kembali=$kembali, status=1 WHERE idorder=$idorder";
-            $db = \Config\Database::connect();
-            $db->query($sql);
-            return redirect()->to(base_url("/admin/order"));
+            $idorder = $_POST['idorder'];
+            $total = $_POST['total'];
+            $bayar = $_POST['bayar'];
+
+            if ($bayar < $total) {
+                session()->setFlashdata('info', 'Pembayaran kurang !');
+                $this->find($idorder);
+            } else {
+                $kembali = $total - $bayar;
+                $sql = "UPDATE tblorder SET bayar=$bayar, kembali=$kembali, status=1 WHERE idorder=$idorder";
+                $db = \Config\Database::connect();
+                $db->query($sql);
+                return redirect()->to(base_url("/admin/order"));
+            }
+            //echo $total . "<br>" . $idorder . "<br>" . $bayar;
+
         }
-        //echo $total . "<br>" . $idorder . "<br>" . $bayar;
     }
 
     //--------------------------------------------------------------------
