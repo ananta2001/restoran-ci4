@@ -25,7 +25,7 @@
                 </div>
 
                 <span>
-                    <h1>LOGIN ADMIN</h1>
+                    <h1>LOGIN Restoran</h1>
                 </span>
                 <hr>
                 <form action="<?= base_url('/admin/login') ?>" method="POST">

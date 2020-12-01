@@ -10,14 +10,34 @@
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="row-cols-1">
+    <!-- wrapper sidebar -->
+    <div class="d-flex toggled" id="wrapper">
+
+        <!-- Sidebar -->
+        <div class="bg-light border-right" id="sidebar-wrapper">
+            <!-- list group -->
+            <div class="list-group list-group-flush">
+                <a href="<?= base_url('/frontend/kategori') ?>" class="list-group-item list-group-item-action bg-light" role="tab">Kategori</a>
+                <a href="<?= base_url('/frontend/menu') ?>" class="list-group-item list-group-item-action bg-light" role="tab">Menu</a>
+                <a href="<?= base_url('/frontend/orderdetail') ?>" class="list-group-item list-group-item-action bg-light" role="tab">Order Detail</a>
+                <a href="<?= base_url('/frontend/order') ?>" class="list-group-item list-group-item-action bg-light" role="tab">Order</a>
+                <a href="<?= base_url('') ?>" class="list-group-item list-group-item-action bg-light" role="tab">Pelanggan</a>
+                <a href="<?= base_url('') ?>" class="list-group-item list-group-item-action bg-light" role="tab">User</a>
+            </div>
+            <div class="col-8 px-2"><?= $this->renderSection('content') ?></div>
+        </div>
+
+        <div id="page-content-wrapper">
+
             <!-- navbar text -->
-            <nav class="navbar navbar-expand navbar-light flex-md-row bd-navbar border-right bg-light">
-                <a class="navbar-brand active" href="<?= base_url('/frontpage/homepage') ?>">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <button class="btn btn-primary mr-2" id="menu-toggle"><img src="<?= base_url('/icon/list.png') ?>" alt="" style="width:15px;height:20px;"></button>
+
+                <a class="navbar-brand active" href="<?= base_url('/home') ?>">
                     <img src="<?= base_url('/icon/house.svg') ?>" width="30" height="30" class="d-inline-block align-top" alt="">
                     Restoran
                 </a>
+
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -25,40 +45,25 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link mr-1" href="#">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link mr-1" href="#">Login <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="btn btn-primary" href="#" role="button">Logout</a>
+                            <a class="btn btn-primary" href="<?= base_url('frontpage/login/logout') ?>" role="button">Logout</a>
                         </li>
                     </ul>
                 </div>
             </nav>
 
-            <!-- wrapper sidebar -->
-            <div class="d-flex" id="wrapper">
-
-                <!-- Sidebar -->
-                <div class="bg-light border-right" id="sidebar-wrapper">
-                    <!-- list group -->
-                    <div class="list-group list-group-flush">
-                        <a href="#" class="list-group-item list-group-item-action bg-light" role="tab">Dashboard</a>
-                        <a href="#" class="list-group-item list-group-item-action bg-light" role="tab">Shortcuts</a>
-                        <a href="#" class="list-group-item list-group-item-action bg-light" role="tab">Overview</a>
-                        <a href="#" class="list-group-item list-group-item-action bg-light" role="tab">Events</a>
-                        <a href="#" class="list-group-item list-group-item-action bg-light" role="tab">Profile</a>
-                        <a href="#" class="list-group-item list-group-item-action bg-light" role="tab">Status</a>
-                    </div>
-                </div>
-                <!-- <div class="row mt-2">
-                <div class="col-4">
-                    <div class="card" style="width: 19rem;">
-                        <ul class="list-group">
-                            <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
-                            <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
-                            <button type="button" class="list-group-item list-group-item-action">Porta ac consectetur ac</button>
-                        </ul>
-                    </div>
-                </div>
-            </div> -->
-            </div>
         </div>
+    </div>
+    <!-- Bootstrap core JavaScript -->
+    <script src="<?= base_url('jquery/jquery.min.js') ?>"></script>
+    <script src="<?= base_url('bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+        $("#menu-toggle").click(function(e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+    </script>
