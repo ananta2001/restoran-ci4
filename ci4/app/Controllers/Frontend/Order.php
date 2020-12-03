@@ -40,7 +40,7 @@ class Order extends BaseController
 
         ];
 
-        echo view('order/select', $data);
+        echo view('homepage/order/select', $data);
     }
 
     public function find($id = null)
@@ -71,7 +71,7 @@ class Order extends BaseController
             'detail' => $detail
         ];
 
-        echo view('order/update', $data);
+        echo view('homepage/order/update', $data);
     }
 
     public function update()
@@ -90,7 +90,7 @@ class Order extends BaseController
                 $sql = "UPDATE tblorder SET bayar=$bayar, kembali=$kembali, status=1 WHERE idorder=$idorder";
                 $db = \Config\Database::connect();
                 $db->query($sql);
-                return redirect()->to(base_url("/admin/order"));
+                return redirect()->to(base_url("/frontend/order"));
             }
             //echo $total . "<br>" . $idorder . "<br>" . $bayar;
 

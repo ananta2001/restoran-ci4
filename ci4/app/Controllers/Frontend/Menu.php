@@ -2,8 +2,6 @@
 
 namespace App\Controllers\Frontend;
 
-namespace App\Controllers\Admin;
-
 use App\Controllers\BaseController;
 use App\Models\Menu_M;
 use App\Models\Kategori_M;
@@ -29,7 +27,7 @@ class Menu extends BaseController
         //\print_r($data);
         //echo "</pre>";
 
-        echo view("menu/select", $data);
+        echo view("/homepage/menu/select", $data);
     }
 
     public function read()
@@ -61,7 +59,7 @@ class Menu extends BaseController
                 'total' => $count
             ];
 
-            echo view("menu/cari", $data);
+            echo view("homepage/menu/cari", $data);
         }
     }
 
@@ -123,24 +121,24 @@ class Menu extends BaseController
     // }
     //}
 
-    public function find($id = null)
-    {
-        $model = new Menu_M();
-        $menu = $model->find($id);
+    // public function find($id = null)
+    // {
+    //     $model = new Menu_M();
+    //     $menu = $model->find($id);
 
-        $kategorimodel = new Kategori_M();
-        $kategori = $kategorimodel->findAll();
+    //     $kategorimodel = new Kategori_M();
+    //     $kategori = $kategorimodel->findAll();
 
-        //print_r($menu);
+    //     //print_r($menu);
 
-        $data = [
-            'judul' => 'UPDATE DATA',
-            'menu' => $menu,
-            'kategori' => $kategori
-        ];
+    //     $data = [
+    //         'judul' => 'UPDATE DATA',
+    //         'menu' => $menu,
+    //         'kategori' => $kategori
+    //     ];
 
-        return view("menu/update", $data);
-    }
+    //     return view("menu/update", $data);
+    // }
 
     // public function update()
     // {

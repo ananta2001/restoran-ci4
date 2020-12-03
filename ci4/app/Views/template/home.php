@@ -15,16 +15,13 @@
 
         <!-- Sidebar -->
         <div class="bg-light border-right" id="sidebar-wrapper">
+            <div class="sidebar-heading">Menu Sidebar</div>
             <!-- list group -->
             <div class="list-group list-group-flush">
-                <a href="<?= base_url('/frontend/kategori') ?>" class="list-group-item list-group-item-action bg-light" role="tab">Kategori</a>
-                <a href="<?= base_url('/frontend/menu') ?>" class="list-group-item list-group-item-action bg-light" role="tab">Menu</a>
+                <a href="<?= base_url('/frontend/menu') ?>" class="list-group-item list-group-item-action bg-light" role="tab">Menu Makanan</a>
                 <a href="<?= base_url('/frontend/orderdetail') ?>" class="list-group-item list-group-item-action bg-light" role="tab">Order Detail</a>
                 <a href="<?= base_url('/frontend/order') ?>" class="list-group-item list-group-item-action bg-light" role="tab">Order</a>
-                <a href="<?= base_url('') ?>" class="list-group-item list-group-item-action bg-light" role="tab">Pelanggan</a>
-                <a href="<?= base_url('') ?>" class="list-group-item list-group-item-action bg-light" role="tab">User</a>
             </div>
-            <div class="col-8 px-2"><?= $this->renderSection('content') ?></div>
         </div>
 
         <div id="page-content-wrapper">
@@ -54,8 +51,14 @@
                 </div>
             </nav>
 
+            <div class="container-fluid">
+                <div class="col-8 px-2"><?= $this->renderSection('content') ?></div>
+            </div>
+
         </div>
     </div>
+
+
     <!-- Bootstrap core JavaScript -->
     <script src="<?= base_url('jquery/jquery.min.js') ?>"></script>
     <script src="<?= base_url('bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
@@ -67,3 +70,13 @@
             $("#wrapper").toggleClass("toggled");
         });
     </script>
+
+</body>
+<footer class="page-footer font-small">
+    <div class="footer-copyright text-center py-3">
+        @ 2020 Copyright
+    </div>
+
+</footer>
+
+</html>

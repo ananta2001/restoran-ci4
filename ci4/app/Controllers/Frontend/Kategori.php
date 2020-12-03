@@ -8,7 +8,7 @@ use App\Models\Kategori_M;
 
 class Kategori extends BaseController
 {
-	public function read()
+	public function index()
 	{
 		$pager = \Config\Services::pager();
 		$model = new Kategori_M();
@@ -27,7 +27,7 @@ class Kategori extends BaseController
 		//\print_r($data);
 		//echo "</pre>";
 
-		echo view("kategori/select", $data);
+		echo view("homepage/kategori/select", $data);
 	}
 
 	// public function insert()
@@ -52,22 +52,22 @@ class Kategori extends BaseController
 	// 	return view("kategori/insert");
 	// }
 
-	public function find($id = null)
-	{
-		$model = new Kategori_M();
-		$kategori = $model->find($id);
+	// public function find($id = null)
+	// {
+	// 	$model = new Kategori_M();
+	// 	$kategori = $model->find($id);
 
-		$data = [
-			'judul' => 'UPDATE DATA',
-			'kategori' => $kategori
-		];
+	// 	$data = [
+	// 		'judul' => 'UPDATE DATA',
+	// 		'kategori' => $kategori
+	// 	];
 
-		//print_r($kategori);
+	// 	//print_r($kategori);
 
-		return view("kategori/update", $data);
+	// 	return view("kategori/update", $data);
 
-		//echo "<h1>Update Data $id</h1>";
-	}
+	// 	//echo "<h1>Update Data $id</h1>";
+	// }
 
 	// public function update($id = null)
 	// {
